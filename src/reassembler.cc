@@ -39,10 +39,8 @@ void Reassembler::insert( uint64_t first_index, string data, bool is_last_substr
         if ( first_index + data.size() <= lower->first + lower->second.size() ) {
           return;
         }
-        if ( lower->first + lower->second.size() < first_index + data.size() ) {
-          data = lower->second + data.substr( lower->first + lower->second.size() - first_index );
-          first_index = lower->first;
-        }
+        data.insert( 0, lower->second.substr( 0, first_index - lower->first ) );
+        first_index = lower->first;
         bytes_pending_ -= lower->second.size();
         unassembled_.erase( lower );
       }

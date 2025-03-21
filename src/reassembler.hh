@@ -45,7 +45,6 @@ public:
 private:
   ByteStream output_;
   std::map<uint64_t, std::string> unassembled_ {};
-  uint64_t first_unpopped_index_ {};
   uint64_t first_unassembled_index_ {};
   uint64_t end_of_index_ {};
   uint64_t bytes_pending_ {};
